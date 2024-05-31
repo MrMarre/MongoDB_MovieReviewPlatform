@@ -1,15 +1,4 @@
-// POST /movies: Lägg till en ny film.
-
-// GET /movies: Hämta en lista med alla filmer.
-
-// GET /movies/:id: Hämta detaljer för en specifik film.
-
-// PUT /movies/:id: Uppdatera en specifik film.
-
-// GET /movies/:id/reviews: Hämta alla recensioner för en specifik film.
-
-// DELETE /movies/:id: Ta bort en specifik film
-
+// !EN ENPOINT ÄR FORTFARANDE KVAR
 const { Movie } = require('../models/movieModel');
 const express = require('express');
 const router = express.Router();
@@ -63,13 +52,11 @@ router
     const { id } = req.params;
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
-      return res.status(400).json({ message: 'invalid id format' });
+      return res.status(400).json({ message: 'Invalid id format' });
     }
     try {
       const movie = await Movie.findById(id);
-      if (!movie) {
-        return res.status(404).json({ error: 'No movie found' });
-      }
+      if (!movie) return res.status(404).json({ error: 'No movie found' });
 
       res.status(200).json(movie);
     } catch (err) {
@@ -84,19 +71,31 @@ router
       const updatedMovie = await Movie.findByIdAndUpdate(id, updateData, {
         new: true,
       });
-      if (!updatedMovie) {
+      if (!updatedMovie)
         return res.status(404).json({ error: 'No movie was found' });
-      }
+
       res.status(200).json(updatedMovie);
     } catch (err) {
       res.status(500).json({ error: err.message });
     }
+  })
+  // !DENNA ÄR KVAR
+  // .get("/movies/:id/reviews", (req, res) => {
+
+  // })
+  // !DENNA ÄR KVAR
+  .delete('/:id', authenticate, verifyRole(['admin']), async (req, res) => {
+    const { id } = req.params;
+
+    try {
+      const movie = await Movie.findByIdAndDelete(id);
+
+      if (!movie) return res.status(400).json({ error: 'No movie found' });
+
+      res.status(200).json({ success: true, deletedMovie: movie });
+    } catch (err) {
+      return res.status(500).json({ error: err.message });
+    }
   });
-// .get("/movies/:id/reviews", (req, res) => {
-
-// })
-// .delete("/movies/:id", (req, res) => {
-
-// })
 
 module.exports = router;
