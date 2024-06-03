@@ -1,0 +1,498 @@
+{
+	"info": {
+		"_postman_id": "4140ec84-ac34-4f7e-9095-53030c7ea459",
+		"name": "MovieReviewPlatform",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33893170"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "localhost:3000/register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"user2\",\r\n    \"email\": \"user2@secret.com\",\r\n    \"password\": \"user2\"\r\n    \r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/users/register",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"admin@secret.com\",\r\n    \"password\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/users/login",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Movies",
+			"item": [
+				{
+					"name": "localhost:3000/movies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/movies",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/movies",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjVkODc2MTRiODE0MDI1MmQyM2IyOWIiLCJyb2xlIjoidXNlciIsImlhdCI6MTcxNzQwNTU1NSwiZXhwIjoxNzE3NDEyNzU1fQ.VYYDXnnKvwC449Gif0Ndmw_VbbN31mGcDSKxCH5eJds",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Lilo and Stick\",\r\n    \"director\": \"General Disney\",\r\n    \"releaseYear\": 2010,\r\n    \"genre\": \"Kids\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/movies",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/movies/:id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjVkODc2MTRiODE0MDI1MmQyM2IyOWIiLCJyb2xlIjoidXNlciIsImlhdCI6MTcxNzQwNTU1NSwiZXhwIjoxNzE3NDEyNzU1fQ.VYYDXnnKvwC449Gif0Ndmw_VbbN31mGcDSKxCH5eJds",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/movies/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "665d85524b8140252d23b28f"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/movies/:id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjVkODc2MTRiODE0MDI1MmQyM2IyOWIiLCJyb2xlIjoidXNlciIsImlhdCI6MTcxNzQwNTU1NSwiZXhwIjoxNzE3NDEyNzU1fQ.VYYDXnnKvwC449Gif0Ndmw_VbbN31mGcDSKxCH5eJds",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Lilo and Stick\",\r\n    \"director\": \"General Disney\",\r\n    \"releaseYear\": 2011,\r\n    \"genre\": \"Kids\"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/movies/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "665d85524b8140252d23b28f"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/movies/:id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjVkODc2MTRiODE0MDI1MmQyM2IyOWIiLCJyb2xlIjoidXNlciIsImlhdCI6MTcxNzQwNTU1NSwiZXhwIjoxNzE3NDEyNzU1fQ.VYYDXnnKvwC449Gif0Ndmw_VbbN31mGcDSKxCH5eJds",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/movies/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "665d85524b8140252d23b28f"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/movies/ratings",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjVkODc2MTRiODE0MDI1MmQyM2IyOWIiLCJyb2xlIjoidXNlciIsImlhdCI6MTcxNzQwNTU1NSwiZXhwIjoxNzE3NDEyNzU1fQ.VYYDXnnKvwC449Gif0Ndmw_VbbN31mGcDSKxCH5eJds",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/movies/ratings",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies",
+								"ratings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/movies/:id/reviews",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/movies/:id/reviews",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"movies",
+								":id",
+								"reviews"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6658b920ca251ae1990958ed"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reviews",
+			"item": [
+				{
+					"name": "localhost:3000/reviews",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjVkOTBkYTMxMmY0YTgzNjFkNWQyYzMiLCJyb2xlIjoidXNlciIsImlhdCI6MTcxNzQwNzk3MywiZXhwIjoxNzE3NDE1MTczfQ.knZ1yIMeevoX2lkaorI_3oOdMxNvEIwhJm9CG3Z1FZs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"movieId\": \"665d868c4b8140252d23b296\",\r\n    \"userId\": \"6658ab97b9656e7c1e8dc812\",\r\n    \"rating\": 7,\r\n    \"comment\": \"Ball vovve, en sådan skulle en ha\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/reviews",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"reviews"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/reviews",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjU4YWI5N2I5NjU2ZTdjMWU4ZGM4MTIiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3MTcxNTU5MjgsImV4cCI6MTcxNzE2MzEyOH0.li9FfLnZ4R3oSbHas1Uga1zM3bPf4g1I9tIf28ckWh0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/reviews",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"reviews"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/reviews/:id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/reviews/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"reviews",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6659bae291daaa90ed280c43"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/reviews/:id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjVkODc2MTRiODE0MDI1MmQyM2IyOWIiLCJyb2xlIjoidXNlciIsImlhdCI6MTcxNzQwNTU1NSwiZXhwIjoxNzE3NDEyNzU1fQ.VYYDXnnKvwC449Gif0Ndmw_VbbN31mGcDSKxCH5eJds",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n    \r\n    \"rating\": 1,\r\n    \"comment\": \"Den var något bättre än väntat2222\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/reviews/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"reviews",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "665d8f9ab70429d82d924049"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:3000/reviews/:id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjU4YWI5N2I5NjU2ZTdjMWU4ZGM4MTIiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3MTc0MDg3NTAsImV4cCI6MTcxNzQxNTk1MH0.oRRuObx6Mb4EYNVcZty_N6DmE76gyDCnTEY9y9k_Lgs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/reviews/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"reviews",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "665d88a14b8140252d23b2a3"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -1,5 +1,6 @@
 // !EN ENPOINT ÄR FORTFARANDE KVAR
 const { Movie } = require('../models/movieModel');
+const { Review } = require('../models/reviewModel');
 const express = require('express');
 const router = express.Router();
 const { authenticate, verifyRole } = require('../middlewares/auth');
@@ -47,6 +48,37 @@ router
       return res.status(400).json({ error: err.message });
     }
   })
+  .get('/ratings', async (req, res) => {
+    try {
+      const ratings = await Movie.aggregate([
+        {
+          $lookup: {
+            from: 'reviews',
+            localField: '_id',
+            foreignField: 'movieId',
+            as: 'reviews',
+          },
+        },
+        {
+          $addFields: {
+            averageRatings: { $avg: '$reviews.rating' },
+          },
+        },
+        {
+          $project: {
+            title: 1,
+            director: 1,
+            releaseYear: 1,
+            genre: 1,
+            averageRatings: { $avg: '$reviews.rating' },
+          },
+        },
+      ]);
+      res.status(200).json(ratings);
+    } catch (err) {
+      res.status(500).json({ error: err.message });
+    }
+  })
 
   .get('/:id', async (req, res) => {
     const { id } = req.params;
@@ -79,11 +111,24 @@ router
       res.status(500).json({ error: err.message });
     }
   })
-  // !DENNA ÄR KVAR
-  // .get("/movies/:id/reviews", (req, res) => {
 
-  // })
-  // !DENNA ÄR KVAR
+  .get('/:id/reviews', async (req, res) => {
+    const { id } = req.params;
+
+    try {
+      if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(400).json({ message: 'Invalid id format' });
+      }
+      const reviews = await Review.find({ movieId: id });
+      if (reviews.length < 1) {
+        res.status(404).json({ message: 'No reviews found on this movie' });
+      }
+      res.status(200).json(reviews);
+    } catch (err) {
+      return res.status(400).json({ error: err.message });
+    }
+  })
+
   .delete('/:id', authenticate, verifyRole(['admin']), async (req, res) => {
     const { id } = req.params;
 
