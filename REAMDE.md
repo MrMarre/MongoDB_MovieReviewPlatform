@@ -24,15 +24,15 @@ GET /movies/:id/reviews: Hämta alla recensioner för en specifik film. -->
 
 CHECK - DELETE /movies/:id: Ta bort en specifik film.
 
-POST /reviews: Lägg till en ny recension.
+CHECK POST /reviews: Lägg till en ny recension.
 
-GET /reviews: Hämta en lista med alla recensioner.
+CHECK GET /reviews: Hämta en lista med alla recensioner.
 
-GET /reviews/:id: Hämta detaljer för en specifik recension.
+CHECK GET /reviews/:id: Hämta detaljer för en specifik recension.
 
-PUT /reviews/:id: Uppdatera en specifik recension.
+CHECK PUT /reviews/:id: Uppdatera en specifik recension.
 
-DELETE /reviews/:id: Ta bort en specifik recension.
+CHECK DELETE /reviews/:id: Ta bort en specifik recension.
 
 CHECK - POST /register: Registrera en ny användare.
 
