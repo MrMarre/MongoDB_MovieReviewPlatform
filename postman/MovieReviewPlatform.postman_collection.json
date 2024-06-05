@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"user2\",\r\n    \"email\": \"user2@secret.com\",\r\n    \"password\": \"user2\"\r\n    \r\n    \r\n}",
+							"raw": "{\r\n    \"username\": \"user\",\r\n    \"email\": \"user@secret.com\",\r\n    \"password\": \"user\"\r\n    \r\n    \r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -44,7 +44,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"admin@secret.com\",\r\n    \"password\": \"admin\"\r\n}",
+							"raw": "{\r\n    \"email\": \"user@secret.com\",\r\n    \"password\": \"user\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -76,13 +76,20 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:3000/movies",
+							"raw": "localhost:3000/movies?",
 							"host": [
 								"localhost"
 							],
 							"port": "3000",
 							"path": [
 								"movies"
+							],
+							"query": [
+								{
+									"key": null,
+									"value": null,
+									"description": "Gets all movies"
+								}
 							]
 						}
 					},
@@ -105,7 +112,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"Lilo and Stick\",\r\n    \"director\": \"General Disney\",\r\n    \"releaseYear\": 2010,\r\n    \"genre\": \"Kids\"\r\n}",
+							"raw": "{\r\n    \"title\": \"Movie Title\",\r\n    \"director\": \"General Disney\",\r\n    \"releaseYear\": 2010,\r\n    \"genre\": \"Cartoon\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -165,7 +172,8 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "665d85524b8140252d23b28f"
+									"value": "665d85524b8140252d23b28f",
+									"description": "Enter a valid ObjectId"
 								}
 							]
 						}
@@ -209,7 +217,8 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "665d85524b8140252d23b28f"
+									"value": "665d85524b8140252d23b28f",
+									"description": "Enter a valid ObjectId"
 								}
 							]
 						}
@@ -244,7 +253,8 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "665d85524b8140252d23b28f"
+									"value": "665d85524b8140252d23b28f",
+									"description": "Enter a valid ObjectId"
 								}
 							]
 						}
@@ -275,6 +285,13 @@
 							"path": [
 								"movies",
 								"ratings"
+							],
+							"query": [
+								{
+									"key": null,
+									"value": null,
+									"disabled": true
+								}
 							]
 						}
 					},
@@ -299,7 +316,8 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "6658b920ca251ae1990958ed"
+									"value": "6658b920ca251ae1990958ed",
+									"description": "FInds all reviews on a specific movie"
 								}
 							]
 						}
@@ -328,7 +346,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"movieId\": \"665d868c4b8140252d23b296\",\r\n    \"userId\": \"6658ab97b9656e7c1e8dc812\",\r\n    \"rating\": 7,\r\n    \"comment\": \"Ball vovve, en sådan skulle en ha\"\r\n}",
+							"raw": "{\r\n    \"movieId\": \"665d868c4b8140252d23b296\",\r\n    \"userId\": \"6658ab97b9656e7c1e8dc812\",\r\n    \"rating\": 7,\r\n    \"comment\": \"Ball vovve, en sådan skulle en ha\"\r\n}\r\n// Post a review\r\n// Use a valid movieId and connect the userId accordingly.\r\n// As with all requests, a valid token is necessary - \"bearer token\" in Auth",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -368,7 +386,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "",
+							"raw": "// Gets all reviews",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -406,7 +424,8 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "6659bae291daaa90ed280c43"
+									"value": "6659bae291daaa90ed280c43",
+									"description": "finds review on given movie"
 								}
 							]
 						}
@@ -450,7 +469,8 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "665d8f9ab70429d82d924049"
+									"value": "665d8f9ab70429d82d924049",
+									"description": "Enter valid ObjectId - only the original reviewer and admin can update a review"
 								}
 							]
 						}
